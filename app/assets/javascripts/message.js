@@ -1,11 +1,11 @@
 $(function(){
   function buildHTML(message){
-   
-    if (message.image.url){
-    var msg_url = '<img src="' + message.image.url + '" class="lower-message__image" >' 
-  }else{
-    var msg_url = ""
-  };
+  //   if (message.image.url){
+  //   var msg_url = '<img src="' + message.image.url + '" class="lower-message__image" >' 
+  // }else{
+  //   var msg_url = ""
+
+    var msg_url = meesage.image.url ? '<img src="' + message.image.url + '" class="lower-message__image" >' :  ""
     var html = '<div class="message" data-id=' + message.id + '>' +
           '<div class="upper-message">' +
             '<div class="upper-message__user-name">' +
@@ -22,12 +22,8 @@ $(function(){
             msg_url+
           '</div>' +
         '</div>'
-
-
-                  return html;
+     return html;
   }
-
-
 
   $('#new_message').on('submit',function(e){
     e.preventDefault();
@@ -61,8 +57,6 @@ $(function(){
     })
   });
    
-    
-   
     var reloadMessages = function() {
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       last_message_id = $(".message:last").data('id');
@@ -81,10 +75,8 @@ $(function(){
       })
       .done(function(messages) {
 
-        console.log('success');
         messages.forEach(function(message){
 
-        
          //メッセージが入ったHTMLを取得
          var html = buildHTML(message)
          //メッセージを追加
@@ -92,15 +84,12 @@ $(function(){
         $('.messages').animate({
         scrollTop: $(".messages")[0].scrollHeight},1500);
 
-
         });
       })
       .fail(function() {
         console.log('error');
       });  
       
-      
-    
     };
     setInterval(reloadMessages, 5000);
 
