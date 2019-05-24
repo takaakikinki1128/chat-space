@@ -2,22 +2,22 @@ $(function(){
   function buildHTML(message){
   
     var msg_url = meesage.image.url ? `<img src="'  message.image.url '" class="lower-message__image" >` :  ""
-    var html = '<div class="message" data-id=' + message.id + '>' +
-          '<div class="upper-message">' +
-            '<div class="upper-message__user-name">' +
-              message.user_name +
-            '</div>' +
-            '<div class="upper-message__date">' +
-              message.created_at +
-            '</div>' +
-          '</div>' +
-          '<div class="lower-message">' +
-            '<p class="lower-message__content">' +
-              message.content +
-            '</p>' + 
-            msg_url+
-          '</div>' +
-        '</div>'
+    var html = `<div class="message" data-id='  message.id + '>` 
+          `<div class="upper-message">` 
+            `<div class="upper-message__user-name">` 
+              message.user_name 
+            `</div>` 
+            `<div class="upper-message__date">` 
+              message.created_at 
+            `</div>`
+          `</div>` 
+          `<div class="lower-message">` 
+            `<p class="lower-message__content">`
+              message.content 
+            `</p>`
+            msg_url
+          `</div>`
+        `</div>`
      return html;
   }
 
