@@ -9,8 +9,8 @@ class MessagesController < ApplicationController
   def create
     @message = @group.messages.new(message_params)
       
-      
     if @message.save
+      
       respond_to do |format|
 
         format.html {redirect_to group_messages_path(params[:group_id])}
@@ -22,6 +22,8 @@ class MessagesController < ApplicationController
       render :index
     end
   end
+
+  
 
   private
 
